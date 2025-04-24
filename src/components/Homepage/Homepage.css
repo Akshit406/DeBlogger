@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.homepage{
+    position: relative;
+}
+
+.header{
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background-color: #000000d0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px;
+    z-index: 10;
+
+}
+
+.headerButtons{
+    position: absolute;
+    display: flex;
+    gap: 65px;
+    top: 18px;
+    color: #929292;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 50px;
+    
+    p{
+        cursor: pointer;
+    }
+}
+
+.center{
+    position: absolute;
+    height: 1080px;
+    z-index: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+
+    .backgroundImg{
+        position: absolute;
+        z-index: 1;
+        background-color: #000000;
+        height: 600px;
+        width: 100%;
+    }
+
+    img{
+        z-index: 2;
+        position: absolute;
+        height: 600px;
+        opacity: 50%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .textwrapper{
+        width: 100%;
+        z-index: 5;
+        position: absolute;
+        text-align: center;
+        top: 250px;
+        color: #C9C6C6;
+        
+
+        .title{
+            font-size: 50px;
+            font-family: "Konkhmer Sleokchher";
+        }
+
+        p{
+            font-size: 24px;
+            font-family: "Konkhmer Sleokchher";
+        }
+    }
+
+    .separator{
+        position: absolute;
+        width: 100%;
+        height: 80px;
+        z-index: 5;
+        background-color: #E8E8E8;
+        top: 600px;
+        display: flex;
+        justify-content: space-around;
+
+        p{
+                margin-top: 25px;
+        }
+    }
+
+    .content {
+        position: absolute;
+        width: 90%;
+        z-index: 6;
+        left: 5%;
+        top: 720px;
+        padding: 30px;
+        text-align: left;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: "Arial", sans-serif;
+        color: #333;
+
+        p {
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .midContent {
+            margin-top: 40px;
+            font-style: italic;
+            color: #555;
+        }
+
+        
+    }
+
+}
+
+.footer {
+
+    position: absolute;
+    top: 1050px;  
+    height: 100px;
+    width: 100%;
+    background-color: #000000;
+    z-index: 6;
+
+    
+}

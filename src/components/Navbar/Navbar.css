@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap');
+
+.navbar{
+    position: fixed;
+    top: 0px;
+    height: 70px;
+    width: 100%;
+    background-color: #000000;
+    color: aliceblue;
+    display: flex;
+    justify-content: flex-end;
+
+    .title{
+        position: absolute;
+        left: 30px;
+        top: 20px;
+        font-size: 20px;
+        font-family: "Konkhmer Sleokchher";
+    }
+
+    .searchBar{
+        position: absolute;
+        top: 32%;
+        left: 15%;
+        background-color: #ffffff;
+        width: 700px;
+        height: 30px;
+        border-radius: 30px;
+        
+        p{
+            position: absolute;
+            color: #9E9A9A;
+            font-size: 14px;
+            top: 5px;
+            left: 30px;
+        }
+
+        .searchButton{
+            position: absolute;
+            height: 30px;
+            background-color: #CA3737;
+            width: 70px;
+            left: 670px;
+            border-radius:50px ;
+        }
+    }
+    .navbarButtons{
+        position: absolute;
+        display: flex;
+        gap: 65px;
+        top: 20px;
+        color: #929292;
+        font-size: 16px;
+        font-weight: 500;
+        margin-right: 50px;
+        
+        p{
+            cursor: pointer;
+        }
+        
+    }
+
+
+}

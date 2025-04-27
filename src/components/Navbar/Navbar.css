@@ -9,7 +9,13 @@
     color: aliceblue;
     display: flex;
     justify-content: flex-end;
+    z-index: 10;
 
+    .navbarImg{
+        object-fit: cover;
+        width: 100vw;
+        opacity: 60%;
+    }
     .title{
         position: absolute;
         left: 30px;
@@ -21,7 +27,7 @@
     .searchBar{
         position: absolute;
         top: 32%;
-        left: 15%;
+        left: 25%;
         background-color: #ffffff;
         width: 700px;
         height: 30px;
@@ -58,6 +64,14 @@
             cursor: pointer;
         }
         
+    }
+
+    .createPage{
+        background-color: #4338ca;
+        color: #ffffff;
+        margin-top: -5px;
+        padding: 5px 10px;
+        border-radius: 10px;
     }
 
 

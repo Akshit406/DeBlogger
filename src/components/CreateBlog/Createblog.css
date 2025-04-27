@@ -1,0 +1,85 @@
+.create-blog {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    height: 100vh;
+  }
+  
+  .wrapper{
+    position: absolute;
+        display: flex;
+        height: 100vh;
+        width: 70vw;
+        left: 15%;
+        background-color: #E8E8E8   ;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        overflow: hidden;
+  }
+  .form-wrapper {
+    
+    margin: 100px auto 40px auto;
+    width: 50vw;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-heading {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .blog-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-label {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .form-label span {
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  
+  input[type="text"],
+  textarea {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .submit-button {
+    margin-top: 10px;
+    padding: 14px;
+    background-color: #4f46e5;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #4338ca;
+  }
+  

@@ -1,0 +1,83 @@
+* ::-webkit-scrollbar {
+  display: none; 
+}
+
+.viewBlog {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .wrapper {
+    background-color: #f9fafb;
+    height: 100%;
+    width: 70vw;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: auto;
+    
+  }
+  
+  
+  .blogDetails {
+    position: absolute;
+    top: 40px;
+    left: auto;
+    max-width: 50vw;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+
+    
+  }
+  
+  .blogDetails img {
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+  
+  .blogDetails h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #111827;
+  }
+  
+  .blogDetails p {
+    margin: 10px 0;
+    color: #4b5563;
+  }
+  
+  .blogContent {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #374151;
+    white-space: pre-wrap;
+  }
+  
+  strong {
+    color: #111827;
+  }
+  
+  .backButton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .backButton:hover {
+    background-color: #2563eb;
+  }
+  

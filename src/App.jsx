@@ -5,6 +5,7 @@ import Homepage from './components/Homepage/Homepage';
 import BlogsPage from './components/BlogsPage/BlogsPage';
 import Profile from './components/Profile/Profile';
 import CreateBlog from './components/createBlog/CreateBlog';
+import ViewBlog from './components/ViewBlog/ViewBlog';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/blogsPage" element={<BlogsPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/createBlog" element={<CreateBlog />} />
+          <Route path="/blog/:postId" element={<ViewBlog />} />
         </Routes>
       </Router>
     </div>

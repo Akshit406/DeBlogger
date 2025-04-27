@@ -11,7 +11,7 @@
 
 .header{
     position: fixed;
-    height: 50px;
+    height: 70px;
     width: 100%;
     background-color: #000000d0;
     display: flex;
@@ -26,11 +26,11 @@
     position: absolute;
     display: flex;
     gap: 65px;
-    top: 18px;
+    top: 20px;
     color: #929292;
     font-size: 14px;
     font-weight: 500;
-    margin-right: 50px;
+    margin-right: 40px;
     
     p{
         cursor: pointer;

@@ -67,7 +67,7 @@ const Profile = () => {
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(contractAddress, DeBlogProfileABI, signer);
+      const contract = new ethers.Contract(profilecontractAddress, DeBlogProfileABI, signer);
 
       const tx = await contract.setProfile(username, avatarUrl);
       await tx.wait();
@@ -83,6 +83,9 @@ const Profile = () => {
     }
   };
 
+  
+  
+
   useEffect(() => {
     if (isConnected && currentAccount) {
       checkRegistered(currentAccount);
@@ -94,11 +97,13 @@ const Profile = () => {
       <Navbar />
 
       {!isConnected ? (
+        <div className="wrapper">
         <div className="connectWallet">
           <p className='heading'>Connect Wallet</p>
           <img src="https://www.figma.com/community/resource/ad81a042-6cf3-4595-b892-b82ba0725d5c/thumbnail" alt="Connect" />
           <div onClick={connectWallet} className="connectButton">
             <p>Connect</p>
+          </div>
           </div>
         </div>
       ) : (
@@ -129,7 +134,8 @@ const Profile = () => {
               </div>
             </div>
           ) : (
-            <div className="register">
+            <div className="wrapper">
+              <div className="register">
               <p className="heading">Register Profile</p>
 
               <form onSubmit={handleRegister} className="register-form">
@@ -168,6 +174,7 @@ const Profile = () => {
                   {loading ? "Registering..." : "Register"}
                 </button>
               </form>
+            </div>
             </div>
           )}
         </>

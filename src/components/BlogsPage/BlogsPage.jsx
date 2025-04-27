@@ -4,6 +4,7 @@ import Navbar from '../Navbar/Navbar'
 import { ethers } from 'ethers'
 import DeBlogProfileABI from '../../contracts/DeBlogProfile.json';
 import DeBlogABI from '../../contracts/DeBlog.json';
+import { Link } from 'react-router-dom';
 
 const DEBLOG_CONTRACT_ADDRESS = "0xbdD67AB5c812209111381EcC9B58481C7809c8f5";
 const PROFILE_CONTRACT_ADDRESS = "0xdE80E7d6370457175D5Ae1B65aD051f9021Effc4";
@@ -69,20 +70,23 @@ const BlogsPage = () => {
     <div className='blogsPage'>
       <Navbar />
       <div className="blogs">
+      <p>Sorting blogs by postID</p>
+
         {loading? (
           <p>Loading blogs from blockchain...</p>
         ): blogs.length === 0 ? (
           <p>No Blogs yet. Be the first to create one!</p>
         ):(
           blogs.map((blog)=> (
-            
-            <div key={blog.postId} className="blog">
-              <img src={blog.coverImage || "https://via.placeholder.com/400x200?text=No+Image"} alt="" />
-              <p className="blogTitle">{blog.title}</p>
-              <p className="authorName">Author: {blog.username}</p> 
-              <p className="publishedAt">Published: {new Date(blog.timestamp * 1000).toLocaleDateString()}</p>
-              <p className='blogLikes'>❤️ {blog.likes.toString()} likes</p>
-            </div>
+            <Link to={`/blog/${blog.postId}` } key={blog.postId} className='blogLink'>
+              <div key={blog.postId} className="blog">
+                <img src={blog.coverImage || "https://via.placeholder.com/400x200?text=No+Image"} alt="" />
+                <p className="blogTitle">{blog.title}</p>
+                <p className="authorName">Author: {blog.username}</p> 
+                <p className="publishedAt">Published: {new Date(blog.timestamp * 1000).toLocaleDateString()}</p>
+                <p className='blogLikes'>❤️ {blog.likes.toString()} likes</p>
+              </div>
+            </Link>
           ))
         )}
        

@@ -1,7 +1,9 @@
 import React from 'react'
 import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className='navbar'>
       <img src="../../src/assets/1572.jpg" className="navbarImg" alt="" />
@@ -11,10 +13,10 @@ const Navbar = () => {
         <div className="searchButton"></div>
       </div>
       <div className="navbarButtons">
-        <p>Home</p>
-        <p>Blogs</p>
-        <p>Profile</p>
-        <p className='createPage' >Create</p>
+        <p onClick={()=>{navigate("/")}}> Home</p>
+        <p onClick={()=>{navigate("/blogsPage")}}>Blogs</p>
+        <p onClick={()=>{navigate("/profile")}}> Profile</p>
+        <p className='createPage' onClick={()=>{navigate("/createBlog")}}>Create</p>
       </div>
     </div>
   )

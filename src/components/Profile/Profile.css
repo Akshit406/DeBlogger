@@ -1,150 +1,154 @@
-.profile{
-    position: relative;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Profile Page Styles */
+.profile {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
 
-    .wrapper{
-        position: absolute;
-        display: flex;
-        height: 100vh;
-        width: 70vw;
-        left: 15%;
-        background-color: #E8E8E8   ;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-top: 70px;
-        overflow: hidden;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 70vw;
+  background-color: #E8E8E8;
+  padding-top: 30px;
+  overflow: hidden;
+}
 
-        .user-profile {
-            margin-top: 30px;
-            position: absolute;
-            height: 60%;
-            width: 50vw;
-            background-color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 20px;
-            gap: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-          }
-          
-          .profile-heading {
-            margin-top: 10px;
-            font-size: 26px;
-            font-weight: 600;
-            text-align: center;
-          }
-          
-          .profile-avatar {
-            height: 100px;
-            width: 100px;
-            border: 4px solid #3b3838;
-            border-radius: 50%;
-            object-fit: cover;
-          }
-          
-          .profile-info {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-            padding: 0 20px;
-          }
-          
-          .profile-label {
-            font-size: 18px;
-            color: #333;
-          }
-          
-          .profile-label span {
-            display: inline-block;
-            background-color: #f0f0f0;
-            padding: 4px 8px;
-            border-radius: 10px;
-            font-weight: bold;
-            margin-right: 5px;
-          }
-          
-          .logout-button {
-            margin-top: auto;
-            padding: 12px 20px;
-            background-color: #ca3737;
-            color: #ffffff;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-          }
-          
-          .logout-button:hover {
-            background-color: #a72d2d;
-          }
-          
+.user-profile {
+  margin-top: 30px;
+  width: 50vw;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  gap: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .connectWallet{
-        margin-top: 30px;
-        position: absolute;
-        height: 60%;
-        width: 50vw;
-        background-color: rgb(255, 255, 255);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;   
-        padding: 25px;
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        background-color: #fafafa;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.profile-heading {
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+}
 
-        .heading{
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+.profile-avatar {
+  height: 100px;
+  width: 100px;
+  border: 4px solid #3b3838;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-        img{
-            height: 50%;
-            width: 50%;
-            border-radius: 50px;
-        }
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 0 20px;
+}
 
-        .connectButton{
-            margin-top: 20px;
-            padding: 12px;
-            background-color: #4f46e5;
-            color: white;
-            text-align: center;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+.profile-label {
+  font-size: 18px;
+  color: #333;
+}
 
-        }
-    }
+.profile-label span {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-right: 5px;
+}
 
-    .register {
+.logout-button {
+  margin-top: auto;
+  padding: 12px 20px;
+  background-color: #ca3737;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #a72d2d;
+}
+
+/* Connect Wallet Styles */
+.connectWallet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 50vw;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.connectWallet .heading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.connectWallet img {
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+}
+
+.connectButton {
+  padding: 12px;
+  background-color: #4f46e5;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.connectButton:hover {
+  background-color: #4338ca;
+}
+
+/* Register Profile Styles */
+.register {
   width: 400px;
   margin: 40px auto;
   padding: 25px;
   border: 1px solid #ddd;
   border-radius: 12px;
   background-color: #fafafa;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.heading {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
+.register .heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .register-form {
@@ -188,7 +192,3 @@ input[type="text"] {
 .registerButton:hover {
   background-color: #4338ca;
 }
-
-
-
-}}

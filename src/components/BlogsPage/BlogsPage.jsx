@@ -1,46 +1,91 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './BlogsPage.css'
 import Navbar from '../Navbar/Navbar'
+import { ethers } from 'ethers'
+import DeBlogProfileABI from '../../contracts/DeBlogProfile.json';
+import DeBlogABI from '../../contracts/DeBlog.json';
 
+const DEBLOG_CONTRACT_ADDRESS = "0xbdD67AB5c812209111381EcC9B58481C7809c8f5";
+const PROFILE_CONTRACT_ADDRESS = "0xdE80E7d6370457175D5Ae1B65aD051f9021Effc4";
 
 const BlogsPage = () => {
+  const [blogs, setBlogs]=useState([]);
+  const [loading, setLoading] = useState(false);
+
+  
+
+  useEffect(()=>{
+    const loadblogs = async()=>{
+      try{
+        if(!window.ethereum){
+          alert("Please install metamask!")
+          return;
+        }
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        await provider.send("eth_requestAccounts", []);
+
+        const signer = provider.getSigner();
+        const deBlogContract = new ethers.Contract(DEBLOG_CONTRACT_ADDRESS, DeBlogABI, signer);
+        const profileContract = new ethers.Contract(PROFILE_CONTRACT_ADDRESS,DeBlogProfileABI, signer);
+
+        const fetchedBlogs = await deBlogContract.getAllPosts();
+        console.log("Fetched blogs:", fetchedBlogs);
+
+        setBlogs(fetchedBlogs);
+
+        // For each blog, get the author's username
+        const blogsWithUsernames = await Promise.all(
+          fetchedBlogs.map(async (blog) => {
+            try {
+              const profile = await profileContract.getProfile(blog.author);
+              return {
+                ...blog,
+                username: profile.username || "Unknown Author",
+              };
+            } catch (error) {
+              console.error(`Failed to fetch profile for ${blog.author}:`, error);
+              return {
+                ...blog,
+                username: "Unknown Author",
+              };
+            }
+          })
+        );
+
+        setBlogs(blogsWithUsernames);
+        
+      }catch (error) {
+        console.error("Error loading blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadblogs();
+  }, []);
+
+  
   return (
     <div className='blogsPage'>
       <Navbar />
       <div className="blogs">
-        <p>Sorting all blogs by date of publishing</p>
-        <div className="blog">
-          <img src="https://images.squarespace-cdn.com/content/v1/538a3874e4b0ab1541d204ad/1571177163238-YCYWVATOSPZMWPNGQQPV/Sarah-Marino-Utah-Green-River-Overlook-Lightning-Black-White-1200px-Watermark.jpg" alt="" />
-          <p className="blogTitle">PROMINENT DEFORESTATION IN TUNDRA REGION</p>
-          <p className="authorName">By: Kailash Bajpayee</p>
-          <p className="publishedAt">Published: 8 July, 2023</p>
-        </div>
-        <div className="blog">
-          <img src="https://images.squarespace-cdn.com/content/v1/538a3874e4b0ab1541d204ad/1571177163238-YCYWVATOSPZMWPNGQQPV/Sarah-Marino-Utah-Green-River-Overlook-Lightning-Black-White-1200px-Watermark.jpg" alt="" />
-          <p className="blogTitle">PROMINENT DEFORESTATION IN TUNDRA REGION</p>
-          <p className="authorName">By: Kailash Bajpayee</p>
-          <p className="publishedAt">Published: 8 July, 2023</p>
-        </div><div className="blog">
-          <img src="https://images.squarespace-cdn.com/content/v1/538a3874e4b0ab1541d204ad/1571177163238-YCYWVATOSPZMWPNGQQPV/Sarah-Marino-Utah-Green-River-Overlook-Lightning-Black-White-1200px-Watermark.jpg" alt="" />
-          <p className="blogTitle">PROMINENT DEFORESTATION IN TUNDRA REGION</p>
-          <p className="authorName">By: Kailash Bajpayee</p>
-          <p className="publishedAt">Published: 8 July, 2023</p>
-        </div><div className="blog">
-          <img src="https://images.squarespace-cdn.com/content/v1/538a3874e4b0ab1541d204ad/1571177163238-YCYWVATOSPZMWPNGQQPV/Sarah-Marino-Utah-Green-River-Overlook-Lightning-Black-White-1200px-Watermark.jpg" alt="" />
-          <p className="blogTitle">PROMINENT DEFORESTATION IN TUNDRA REGION</p>
-          <p className="authorName">By: Kailash Bajpayee</p>
-          <p className="publishedAt">Published: 8 July, 2023</p>
-        </div><div className="blog">
-          <img src="https://images.squarespace-cdn.com/content/v1/538a3874e4b0ab1541d204ad/1571177163238-YCYWVATOSPZMWPNGQQPV/Sarah-Marino-Utah-Green-River-Overlook-Lightning-Black-White-1200px-Watermark.jpg" alt="" />
-          <p className="blogTitle">PROMINENT DEFORESTATION IN TUNDRA REGION</p>
-          <p className="authorName">By: Kailash Bajpayee</p>
-          <p className="publishedAt">Published: 8 July, 2023</p>
-        </div><div className="blog">
-          <img src="https://images.squarespace-cdn.com/content/v1/538a3874e4b0ab1541d204ad/1571177163238-YCYWVATOSPZMWPNGQQPV/Sarah-Marino-Utah-Green-River-Overlook-Lightning-Black-White-1200px-Watermark.jpg" alt="" />
-          <p className="blogTitle">PROMINENT DEFORESTATION IN TUNDRA REGION</p>
-          <p className="authorName">By: Kailash Bajpayee</p>
-          <p className="publishedAt">Published: 8 July, 2023</p>
-        </div>
+        {loading? (
+          <p>Loading blogs from blockchain...</p>
+        ): blogs.length === 0 ? (
+          <p>No Blogs yet. Be the first to create one!</p>
+        ):(
+          blogs.map((blog)=> (
+            
+            <div key={blog.postId} className="blog">
+              <img src={blog.coverImage || "https://via.placeholder.com/400x200?text=No+Image"} alt="" />
+              <p className="blogTitle">{blog.title}</p>
+              <p className="authorName">Author: {blog.username}</p> 
+              <p className="publishedAt">Published: {new Date(blog.timestamp * 1000).toLocaleDateString()}</p>
+              <p className='blogLikes'>❤️ {blog.likes.toString()} likes</p>
+            </div>
+          ))
+        )}
+       
         
       </div>
     </div>

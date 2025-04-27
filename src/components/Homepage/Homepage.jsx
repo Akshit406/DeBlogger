@@ -1,15 +1,17 @@
 import React from 'react';
 import "./Homepage.css"
+import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
+    const navigate = useNavigate();
     return (
         <div className="homepage">
             <div className="header">
                 <div className="headerButtons">
-                <p>Home</p>
-                <p>Blogs</p>
-                <p>Profile</p>
-                <p>About</p>
+                <p onClick={()=>{navigate("/")}}>Home</p>
+                <p onClick={()=>{navigate("/blogsPage")}}>Blogs</p>
+                <p onClick={()=>{navigate("/profile")}}>Profile</p>
+                <p onClick={()=>{navigate("/createBlog")}}>Create</p>
                 </div>
             </div>
             <div className="center">
@@ -36,6 +38,15 @@ const Homepage = () => {
                 </div>
             </div>
             <div className="footer">
+                <div className="footer-content">
+                <p>© {new Date().getFullYear()} DeBlogger. All rights reserved.</p>
+                <div className="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">GitHub</a>
+                </div>
+                </div>
+
             </div>
         </div>
     );

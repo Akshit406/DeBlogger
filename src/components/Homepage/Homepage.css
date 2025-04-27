@@ -117,7 +117,7 @@
 
         .midContent {
             margin-top: 40px;
-            font-style: italic;
+            
             color: #555;
         }
 
@@ -127,13 +127,38 @@
 }
 
 .footer {
-
-    position: absolute;
-    top: 1050px;  
-    height: 100px;
     width: 100%;
-    background-color: #000000;
-    z-index: 6;
-
+    background-color: #1f2937; 
+    color: #d1d5db; 
+    padding: 20px 0;
+    position: absolute;
+    top: 100vh;
+    margin-top: 100px;
     
-}
+
+    .footer-content {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+      }
+      
+      .footer-links {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .footer-links a {
+        color: #d1d5db;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      
+      .footer-links a:hover {
+        color: #ffffff;
+      }
+  }

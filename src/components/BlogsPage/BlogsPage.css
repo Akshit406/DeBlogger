@@ -8,7 +8,7 @@
     .blogs{
         position: absolute;
         display: flex;
-        height: fit-content;
+        height: 100vh;
         width: 70vw;
         left: 15%;
         background-color: #E8E8E8   ;
@@ -28,6 +28,7 @@
 
         .blog{
             height: 15vh;
+            margin-top: 40px;
             position: relative;
             width: 50vw;
             background-color: black;
@@ -41,8 +42,8 @@
 
             .blogTitle{
                 position: absolute;
-               margin-left: 10%;
-                top: 20%;
+                margin-left: 5%;
+                top: 15%;
                 font-size: 32px;
                 color: #ffffff;
                 font-weight: 500;
@@ -50,17 +51,27 @@
 
             .authorName{
                 position: absolute;
-                margin-left: 10%;
-                top: 50%;
+                margin-left: 5%;
+                top: 45%;
                 color: #ffffff;
-                font-size: 12px;
+                font-size: 14px;
                 margin-top: 15px;
             }
 
             .publishedAt{
                 position: absolute;
                 right: 10px;
-                top: 70%;
+                top: 75%;
+                color: #ffffff;
+                font-size: 12px;
+
+            }
+
+            .blogLikes{
+                position: absolute;
+                top: 100px;
+                margin-left: 5%;
+                
                 color: #ffffff;
                 font-size: 12px;
 

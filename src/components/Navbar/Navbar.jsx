@@ -10,7 +10,7 @@ const Navbar = () => {
       <p className='title'>DeBlogger</p>
       <div className="searchBar">
         <p>Search by username...</p>
-        <div className="searchButton"></div>
+        <div className="searchButton" onClick={()=>{navigate(`/search/${username}`)}}></div>
       </div>
       <div className="navbarButtons">
         <p onClick={()=>{navigate("/")}}> Home</p>

@@ -8,7 +8,7 @@ import "./ViewBlog.css"
 const DEBLOG_CONTRACT_ADDRESS = "0xbdD67AB5c812209111381EcC9B58481C7809c8f5";
 
 const ViewBlog = () => {
-  const { postId } = useParams(); // 👈 get postId from URL
+  const { postId } = useParams(); 
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(false);
 

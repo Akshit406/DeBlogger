@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
-import '../CreateBlog/CreateBlog.css';
+import './CreateBlog.css';
 import { ethers } from 'ethers';
 import DeBlogABI from "../../contracts/DeBlog.json";
 

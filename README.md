@@ -1,12 +1,34 @@
-# React + Vite
+# DeBlogger 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**DeBlogger** is a decentralized blogging platform built with blockchain technology. It allows users to create, view, and interact with blog posts securely and transparently using smart contracts on Ethereum.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Features
 
-## Expanding the ESLint configuration
+-  **Create Blogs** — Write and publish blog posts stored on-chain.
+-  **Search Users** — Look up profiles and view all posts by a specific user.
+-  **User Profiles** — Each user is identified via a unique Ethereum address.
+- **Decentralized** — No central servers; content is powered by smart contracts.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+- **Frontend**: React, Tailwind CSS, Vite
+- **Smart Contracts**: Solidity, Hardhat
+- **Web3 Integration**: Ethers.js
+- **Deployment**: Vercel (Frontend), Sepolia/Ethereum testnet (Contracts)
+
+---
+
+##  Run Locally
+
+```
+bash
+git clone https://github.com/Akshit406/deBlogger.git
+cd deBlogger
+npm install
+npm run dev
+```
+

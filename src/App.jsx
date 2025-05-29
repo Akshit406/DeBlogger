@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './components/Homepage/Homepage';
 import BlogsPage from './components/BlogsPage/BlogsPage';
 import Profile from './components/Profile/Profile';
-import CreateBlog from './components/createBlog/CreateBlog';
+import CreateBlog from './components/CreateBlog/CreateBlog';
 import ViewBlog from './components/ViewBlog/ViewBlog';
 
 const App = () => {

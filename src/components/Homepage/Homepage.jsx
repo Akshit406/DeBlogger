@@ -16,7 +16,7 @@ const Homepage = () => {
             </div>
             <div className="center">
                 <div className="backgroundImg"></div>
-                <img src='../../src/assets/1572.jpg'></img>
+                <img src='/1572.jpg'></img>
                 <div className="textwrapper">
                     <p className='title'>Welcome to DeBlogger</p>
                     <p>Decentralized Blogging, Redefined</p>
